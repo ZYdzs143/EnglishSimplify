@@ -11,6 +11,13 @@ mutton    →  sheep meat
 
 与中文“猪 + 肉 = 猪肉”的构词方式一致：不背新词，只学组合。
 
+派生同样只有一条规则，没有例外：
+
+```
+person → persones      child → childes      mouse → mouses
+good   → gooder        well  → goodly       first → oneth
+```
+
 ## 三条设计原则
 
 | 原则 | 含义 | 验证方式 |
@@ -25,16 +32,18 @@ mutton    →  sheep meat
 
 ```
 core-word/
-  index.md        基表：702 个词条，按功能词、逻辑词、名词、动词、形容词、副词分类
-rules/            组合规则（待建）
+  index.md        基表：701 个词条，按功能词、逻辑词、名词、动词、形容词、副词分类
+rules/
+  04-plural.md    复数规则：统一 +es，零词法例外
   examples/       组合示例（待建）
 ```
 
 ## 当前进度
 
-- [x] 基表 v2.0：702 词条，含功能词、多义词按义项拆分、不可分解性约定
-- [ ] 六条组合规则正文与反例
+- [x] 基表 v2.0：701 词条，含功能词、多义词按义项拆分、不可分解性约定
+- [x] 复数规则：一条规则、零例外（`rules/04-plural.md`）
+- [ ] 其余五条规则正文与反例
 - [ ] 标准英语 → 简化英语映射表
 - [ ] 覆盖率校验脚本
 
-基表入口：[core-word/index.md](./core-word/index.md)
+基表入口：[core-word/index.md](./core-word/index.md) · 复数规则：[rules/04-plural.md](./rules/04-plural.md)

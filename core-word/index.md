@@ -1,7 +1,7 @@
 # 简化英语基表 · Core Word Basis
 
 **版本** v2.0 · 2026-10-28
-**规模** 702 词条（明细见 §10 统计）
+**规模** 701 词条（明细见 §10 统计）
 **定位** 整个简化英语计划的“基”：表中每个词都不由更简单的词组合定义；表内词经 `rules/` 中的规则组合，生成其余全部词汇。
 
 ---
@@ -24,7 +24,7 @@
    - 例：`light¹`（光）/ `light²`（轻）；`right¹`（正确）/ `right²`（右边）/ `right³`（权利）。
 2. **一词性多值**：同一义项允许兼类（如 `before` 兼介词、连词、副词），词性栏并列书写；不同义项不可合并兼类。
 3. **只收基词**：派生词（-er / -ly / -less / un- / re-）与复合词（`pig meat`、`water bottle`）不入表，由 `rules/` 生成。
-4. **屈折不入表**：复数、过去式、-ing、比较级/最高级由 `rules/04`、`rules/05` 生成；不规则形式（people、teeth、feet、better、first…）在规则文件中单独登记。
+4. **屈折不入表**：复数、过去式、-ing、比较级/最高级、序数一律由规则生成，**不保留任何不规则形式**（people → persones，good → gooder，well → goodly）。规则见 `rules/04-plural.md`。
 5. **收词标准**：a) 高频；b) 语义稳定、不易漂移；c) 无法用本表更简单的词稳定替代。
 6. **释义用本表词写**：逐词文件阶段补做循环性检查（definition circularity check）。
 7. **层级**：功能词（句法骨架）→ 逻辑词（连接与疑问）→ 名词（语义场）→ 动词 → 形容词 → 副词。
@@ -65,7 +65,7 @@
 | same | adj. | 相同的 |
 | such | det. | 这样的 |
 
-> 复数形式 `these / those` 由 `rules/04` 生成，不立条。
+> 指示词不随数变化：`this` / `that` 直接修饰单复数（this bookes），`these` / `those` 废除。
 
 ### 2.2 冠词与限定词
 
@@ -112,7 +112,7 @@
 | million | num. | 百万 |
 | half | num. | 半 |
 
-> 11–99 拟用 `two-ten` 式组合（规则待验证）；序数 `first / second / third` 不规则，其余 -th；均登记在 `rules/04`。
+> 11–99 用 `two-ten` 式组合；序数统一加 `th`：oneth、twoth、threeth（first / second / third 废除）。
 
 ### 2.4 介词
 
@@ -246,7 +246,7 @@
 
 | 词 | 词性 | 义项 |
 |---|---|---|
-| person | n. | 人（复数 people 为不规则，登记于 rules/04） |
+| person | n. | 人（复数 persones，见 rules/04） |
 | man | n. | 男人；人类 |
 | woman | n. | 女人 |
 | child | n. | 孩子 |
@@ -284,7 +284,7 @@
 | ear | n. | 耳朵 |
 | nose | n. | 鼻子 |
 | mouth | n. | 嘴 |
-| tooth | n. | 牙齿（复数 teeth 不规则） |
+| tooth | n. | 牙齿（复数 toothes） |
 | tongue | n. | 舌头；语言（引申义暂不立条） |
 | neck | n. | 脖子 |
 | shoulder | n. | 肩膀 |
@@ -292,7 +292,7 @@
 | hand | n. | 手 |
 | finger | n. | 手指 |
 | leg | n. | 腿 |
-| foot | n. | 脚（复数 feet 不规则） |
+| foot | n. | 脚（复数 footes） |
 | knee | n. | 膝盖 |
 | back¹ | n. | 背部 |
 | heart | n. | 心脏 |
@@ -313,10 +313,10 @@
 | insect | n. | 昆虫 |
 | pig | n. | 猪 → 猪肉 = pig meat |
 | cow | n. | 牛 → 牛肉 = cow meat |
-| sheep | n. | 羊（单复数同形）→ 羊肉 = sheep meat |
+| sheep | n. | 羊（复数 sheepes）→ 羊肉 = sheep meat |
 | horse | n. | 马 |
 | chicken | n. | 鸡 → 鸡肉 = chicken meat（不用 chick：chick 专指雏鸡） |
-| mouse | n. | 老鼠（复数 mice 不规则） |
+| mouse | n. | 老鼠（复数 mouses） |
 | snake | n. | 蛇 |
 | worm | n. | 虫；蠕虫 |
 | bee | n. | 蜜蜂 |
@@ -330,7 +330,7 @@
 | tree | n. | 树 |
 | flower | n. | 花 |
 | grass | n. | 草 |
-| leaf | n. | 叶子（复数 leaves 不规则） |
+| leaf | n. | 叶子（复数 leafes） |
 | root | n. | 根 |
 | seed | n. | 种子 |
 | fruit | n. | 水果 |
@@ -999,11 +999,15 @@
 
 ### 7.4 方式
 
-| 词 | 词性 | 义项 |
-|---|---|---|
-| well | adv. | 好地（good 的副词形式，不规则） |
+方式副词一律由 `形容词 + -ly` 生成，不立条。下表只是示例，不是词条：
 
-> 其余方式副词一律由 `形容词 + -ly` 生成（slow → slowly），不立条。
+| 形容词 | 副词 |
+|---|---|
+| good | goodly（`well` 废除） |
+| slow | slowly |
+| happy | happily（y → i + ly，拼写规则） |
+
+> 若日后发现某个 `-ly` 形式有歧义，改写句子，不加例外。
 
 ### 7.5 语气
 
@@ -1071,7 +1075,7 @@
 | 对象 | 拟用方案 | 风险 |
 |---|---|---|
 | 11–99 数词 | `two-ten`、`three-ten-five` | 与基数词读音差异大，需母语者可读性测试 |
-| 序数 | one-th、two-th；first/second/third 不规则 | 不规则项须硬编码 |
+| 序数 | +th：oneth、twoth、threeth | 新拼写需可读性测试 |
 | 星期 | `day one` … `day seven` | 与“第一天”歧义 |
 | 月份 | `month one` … `month twelve` | 同上 |
 | 今天/明天/昨天 | `this day / next day / last day` | 与“下一天”歧义 |
@@ -1079,7 +1083,7 @@
 ### 9.4 待补规则
 
 - 派生：`-er`（做……的人）、`-ly`（……地）、`-less`（没有……的）、`un-`（不……）、`re-`（再……）。
-- 不规则屈折清单：people、teeth、feet、mice、leaves、men、women、children。
+- 已废除的不规则形式（见 `rules/04-plural.md`）：people、teeth、feet、mice、leaves、men、women、children、first/second/third、well。
 - 复合词长度上限（建议 ≤ 3 个基词），超出改用 `of / for` 短语，避免名词串歧义。
 
 ---
@@ -1093,8 +1097,8 @@
 | 名词 | 320 |
 | 动词 | 133 |
 | 形容词 | 84 |
-| 副词 | 31 |
-| **合计** | **702** |
+| 副词 | 30 |
+| **合计** | **701** |
 
 ### 10.1 与旧版对比
 
