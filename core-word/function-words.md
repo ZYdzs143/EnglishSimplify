@@ -38,9 +38,9 @@
 | have | 有 |
 | he | 他 |
 | hello | 你好 |
-| her¹ | 她 |
-| her² | 她的 |
+| her | 她 |
 | him | 他 |
+| hir | 她的 |
 | his | 他的 |
 | hundred | 百 |
 | I | 我 |
@@ -49,7 +49,6 @@
 | its | 它的 |
 | least | 最少 |
 | less | 更少 |
-| like² | 像 |
 | many | 很多（可数） |
 | may | 可以；可能 |
 | me | 我 |
@@ -61,8 +60,7 @@
 | my | 我的 |
 | near | 靠近 |
 | nine | 九 |
-| no¹ | 没有 |
-| no² | 不 |
+| no | 没有 |
 | of | 的（所属、材料、数量） |
 | off | 离开；脱落 |
 | okay | 好；可以 |

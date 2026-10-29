@@ -23,12 +23,12 @@ good   → gooder        first → oneth        well  → goodly
 ```
 core-word/              基本单词（每个文件只有词与释义）
   index.md              词表索引
-  function-words.md     功能词 108
-  logic-words.md        逻辑词 26
-  nouns.md              名词 320
-  verbs.md              动词 133
+  function-words.md     功能词 106
+  logic-words.md        逻辑词 25
+  nouns.md              名词 317
+  verbs.md              动词 131
   adjectives.md         形容词 84
-  adverbs.md            副词 30
+  adverbs.md            副词 27
 rules/
   04-plural.md          复数规则
   examples/             组合示例（待建）
@@ -48,9 +48,8 @@ rules/
 
 ## 词条约定
 
-1. **词条 = 词形 + 义项**。同一词形的不同义项分行立条，用 ¹ ² 上标标记，不得合并。
-   - 例：`light¹`（光）/ `light²`（轻）；`right¹`（正确）/ `right²`（右边）/ `right³`（权利）。
-2. **一词性多值**：同一义项允许兼类（如 `before` 兼介词、连词、副词），不同义项不可合并。
+1. **一词一义**：一个拼写只承担一个义项。同形不同义时**不用上标**，改用换词、组合或造词（见「一词一义」一节）；同一义项在不同词性下可共用拼写（兼类）。
+2. **兼类**：同一义项可在不同词性下共用拼写（如 `open` 动词/形容词、`work` 名词/动词、`before` 介词/连词/副词）；不同义项不可共用拼写。
 3. **只收基词**：派生词（-er / -ly / -less / un- / re-）与复合词（`pig meat`、`water bottle`）不入表，由 `rules/` 生成。
 4. **屈折不入表**：复数、过去式、-ing、比较级、序数一律由规则生成，**不保留任何不规则形式**。
 5. **收词标准**：a) 高频；b) 语义稳定、不易漂移；c) 无法用本表更简单的词稳定替代。
@@ -103,38 +102,62 @@ rules/
 | 第三人称单数 | 取消 -s | he go | 待定 |
 | 系动词 be | 统一为 be？ | I be、he be | 待决 |
 
-## 多义词登记
+## 一词一义
 
-下表记录全部分行立条的词形，防止回改时被误合并。
+一个拼写只承担一个义项。同形不同义时**不使用上标**，按以下优先级处理：
 
-| 词形 | 义项 A | 义项 B | 义项 C | 处理 |
+1. **换词**：英语已有现成且不冲突的词，直接采用（`light` 光 → `shine`）。
+2. **组合**：由基词组合表达，不新增词条（谎言 → `false word`，权利 → `law power`）。
+3. **造词**：以上都不合适时新造，拼写须符合英语音节习惯（她的 → `hir`）。
+
+同一义项在不同词性下共用拼写（兼类）是允许的，例如 `work`（n./v. 工作）、`open`（v./adj. 开）；不同义项绝不共用拼写。
+
+### 原同形词的处理
+
+| 原写法 | 义项 A | 义项 B | 义项 C | 处理 |
 |---|---|---|---|---|
-| light | light¹ 光（n.） | light² 轻（adj.） | — | 分行 |
-| right | right¹ 正确（adj.） | right² 右边（n./adj.） | right³ 权利（n.） | 分行 |
-| back | back¹ 背部（n.） | back² 回（adv.） | — | 分行 |
-| hard | hard¹ 困难（adj.） | hard² 坚硬（adj.） | — | 分行 |
-| free | free¹ 自由（adj.） | free² 免费（adj.） | — | 分行 |
-| open | open¹ 打开（v.） | open² 开着的（adj.） | — | 分行 |
-| orange | orange¹ 橙子（n.） | orange² 橙色（adj.） | — | 分行 |
-| no | no¹ 没有（det.） | no² 不（adv.） | — | 分行 |
-| her | her¹ 她（pron.） | her² 她的（det.） | — | 分行 |
-| that | that¹ 那个（det.） | that² 引导从句（conj.） | — | 分行 |
-| order | order¹ 命令（n.） | order² 顺序（n.） | — | 分行 |
-| letter | letter¹ 信（n.） | letter² 字母（n.） | — | 分行 |
-| call | call¹ 叫（v.） | call² 打电话（v.） | — | 分行 |
-| like | like¹ 喜欢（v.） | like² 像（prep.） | — | 分行 |
-| so | so¹ 所以（conj.） | so² 这么（adv.） | — | 分行 |
-| own | own¹ 自己的（adj.） | own² 拥有（v.） | — | 分行 |
-| glass | glass¹ 玻璃（n.） | 玻璃杯 | — | 只留 A，杯子用 cup |
-| lie | lie¹ 躺（v.） | lie² 谎言（n.） | 说谎 | 只留 A、B，说谎用 tell lie |
-| watch | watch¹ 手表（n.） | 观看（v.） | — | 只留 A，观看用 look |
-| close | close¹ 关（v.） | 近的（adj.） | — | 只留 A，近用 near |
-| point | point 点（n.） | 指（v.） | — | 只留 A |
-| second | second¹ 秒（n.） | 第二（num.） | — | 第二由数词规则生成 |
-| play | play 玩；演奏（v.） | — | — | 同一义项的两用法，合并 |
-| before/after | 在……前/后 | — | — | 同一义项兼介词、连词、副词 |
-| work | work¹ 工作（n.） | work² 工作（v.） | — | 同义兼类，分列便于检索 |
-| answer | answer 回答（n./v.） | — | — | 同义兼类，分列便于检索 |
+| light | 光 | 轻 | — | 光 = shine；轻 = light |
+| right | 正确 | 右边 | 权利 | 正确 = correct；右边 = right；权利 = law power（组合） |
+| free | 自由 | 免费 | — | 自由 = free；免费 = gratis |
+| hard | 困难 | 坚硬 | — | 困难 = difficult；坚硬 = hard |
+| letter | 信 | 字母 | — | 信 = mail；字母 = letter |
+| order | 命令 | 顺序 | — | 命令 = command；顺序 = order |
+| call | 叫 | 打电话 | — | 叫/称呼 = name；打电话 = call |
+| lie | 躺 | 谎言 | — | 躺 = lie；谎言 = false word（组合） |
+| orange | 橙子 | 橙色 | — | 橙子 = orange；橙色 = orange color（组合） |
+| back | 背 | 回 | — | 背 = back；回 = return |
+| no | 没有 | 不 | — | 没有 = no；不 = not |
+| like | 喜欢 | 像 | — | 喜欢 = like；像 = as |
+| so | 所以 | 这么 | — | 所以 = so；这么 = this（this big） |
+| too | 太 | 也 | — | 太 = too；也 = also |
+| that | 那个 | 引导从句 | — | 那个 = that；从句连词直接省略 |
+| her | 她 | 她的 | — | 她 = her；她的 = hir（造词） |
+| clean | 干净的 | 打扫 | — | 干净 = clean；打扫 = make clean（组合） |
+| own | 自己的 | 拥有 | — | 自己的 = own；拥有 = have |
+| open | 打开 | 开着的 | — | 同一义项，兼类不拆 |
+| play | 玩 | 演奏 | — | 玩 = play；演奏 = play music（组合） |
+
+### 新增与替换词
+
+| 词 | 词性 | 释义 | 方式 |
+|---|---|---|---|
+| shine | n. | 光 | 换词（原 light 的光义） |
+| mail | n. | 信 | 换词（原 letter 的信义） |
+| command | n. | 命令 | 换词（原 order 的命令义） |
+| correct | adj. | 正确的 | 换词（原 right 的正确义） |
+| difficult | adj. | 困难的 | 换词（原 hard 的困难义） |
+| gratis | adj. | 免费的 | 换词（原 free 的免费义） |
+| hir | det. | 她的 | 造词（原 her 的她的义） |
+| name | v. | 称呼 | 兼类扩展（原 call 的叫义） |
+
+### 词条数变化
+
+| 项目 | 数量 |
+|---|---|
+| 旧版 | 701 |
+| 删除（改由组合表达） | 11 |
+| 替换（不增不减） | 8 |
+| **现版** | **690** |
 
 ## 待定与排除
 
@@ -170,19 +193,19 @@ rules/
 
 | 类别 | 文件 | 词条数 |
 |---|---|---|
-| 功能词 | [function-words.md](./core-word/function-words.md) | 108 |
-| 逻辑词 | [logic-words.md](./core-word/logic-words.md) | 26 |
-| 名词 | [nouns.md](./core-word/nouns.md) | 320 |
-| 动词 | [verbs.md](./core-word/verbs.md) | 133 |
+| 功能词 | [function-words.md](./core-word/function-words.md) | 106 |
+| 逻辑词 | [logic-words.md](./core-word/logic-words.md) | 25 |
+| 名词 | [nouns.md](./core-word/nouns.md) | 317 |
+| 动词 | [verbs.md](./core-word/verbs.md) | 131 |
 | 形容词 | [adjectives.md](./core-word/adjectives.md) | 84 |
-| 副词 | [adverbs.md](./core-word/adverbs.md) | 30 |
-| **合计** | [index.md](./core-word/index.md) | **701** |
+| 副词 | [adverbs.md](./core-word/adverbs.md) | 27 |
+| **合计** | [index.md](./core-word/index.md) | **690** |
 
 旧版 138 词（名词 52 / 动词 35 / 形容词 37 / 逻辑词 14），无功能词、无多义拆分、无规则约定。本版补齐功能词与缺失语义场，并按义项拆分。
 
 ## 路线图
 
-- [x] 基表 v2.0：701 词条，按词类拆分为独立文件
+- [x] 基表 v2.0：690 词条，按词类拆分为独立文件
 - [x] 复数规则：一条规则、零例外（`rules/04-plural.md`）
 - [ ] 其余五条规则正文与反例
 - [ ] 标准英语 → 简化英语映射表
